@@ -35,4 +35,22 @@ public class PokemonService {
                 .findFirst()
                 .orElse(null);
     }
+
+    public Pokemon actualizarPorNombre(String nombre, Pokemon actualizado) {
+        Pokemon existente = getPokemonByName(nombre);
+        if (existente == null) {
+            throw new RuntimeException("Pokémon no encontrado con nombre: " + nombre);
+        }
+
+        // Actualizar campos
+        existente.setGeneracion(actualizado.getGeneracion());
+        existente.setTipos(actualizado.getTipos());
+        existente.setHabilidades(actualizado.getHabilidades());
+        existente.setEstadisticas(actualizado.getEstadisticas());
+        existente.setEvoluciones(actualizado.getEvoluciones());
+        existente.setAltura(actualizado.getAltura());
+        existente.setPeso(actualizado.getPeso());
+
+        return existente;
+    }
 }

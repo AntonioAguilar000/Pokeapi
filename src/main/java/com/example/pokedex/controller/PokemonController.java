@@ -25,4 +25,9 @@ public class PokemonController {
     public Pokemon getByName(@PathVariable String nombre) {
         return service.getPokemonByName(nombre);
     }
+
+    @PutMapping("/{nombre}")
+    public Pokemon actualizarPorNombre(@PathVariable String nombre, @RequestBody Pokemon actualizado) {
+        return service.actualizarPorNombre(nombre, actualizado);
+    }
 }
